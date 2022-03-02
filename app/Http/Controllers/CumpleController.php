@@ -16,12 +16,12 @@ class CumpleController extends Controller
         $next = Carbon::parse($next->year(now()->format('Y'))->format('Y-m-d'));
         $age = $fecha->diffInYears($now);
 
-        $birthday_day = $next->format('d-m-Y');
-        $birthday_day_of_week = $fecha->dayName;
         if ($next->year === $now->year) {
             $next = $next->addYear(1);
         }
 
+        $birthday_day_of_week = $next->dayName;
+        $birthday_day = $next->format('d-m-Y');
         $daysleft = $next->diffInDays($now);
         return view('cumple', [
             'now' => $now->format('Y-m-d'),
