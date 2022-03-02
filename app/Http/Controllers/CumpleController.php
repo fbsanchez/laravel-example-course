@@ -14,11 +14,15 @@ class CumpleController extends Controller
         $fecha = Carbon::parse($request->input('cumple'));
         $next = Carbon::parse($fecha->format('Y-m-d'));
         $next = Carbon::parse($next->year(now()->format('Y'))->format('Y-m-d'));
-        $age = $fecha->diffInYears(Carbon::now());
+        $age = $fecha->diffInYears($now);
 
         $birthday_day = $next->format('d-m-Y');
         $birthday_day_of_week = $fecha->dayName;
-        $daysleft = $next->diffInDays(Carbon::now());
+        if ($next->year === $now->year) {
+            $next = $next->addYear(1);
+        }
+
+        $daysleft = $next->diffInDays($now);
         return view('cumple', [
             'now' => $now->format('Y-m-d'),
             'submitted' => $submitted,
