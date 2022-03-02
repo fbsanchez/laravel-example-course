@@ -9,7 +9,7 @@
 
 @if ($submitted)
     @if ($daysleft === 0)
-        <h2>Felicidades!!</h2>
+        <h2>Feliz {{$age}} cumpleaños!!</h2>
     @else
         <p>Tienes {{$age}} años y tu cumple será el próximo {{$day_of_week}} {{$birthday_day}}, faltan {{$daysleft}} días</p>
     @endif
