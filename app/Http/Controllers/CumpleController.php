@@ -17,7 +17,7 @@ class CumpleController extends Controller
         $age = $fecha->diffInYears(Carbon::now());
 
         $birthday_day = $next->format('d-m-Y');
-        $birthday_day_of_week = $fecha->localeDayOfWeek;
+        $birthday_day_of_week = $fecha->dayName;
         $daysleft = $next->diffInDays(Carbon::now());
         return view('cumple', [
             'now' => $now->format('Y-m-d'),
