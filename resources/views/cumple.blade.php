@@ -8,5 +8,9 @@
 <a href="hola"><button>Volver</button></a>
 
 @if ($submitted)
-    <p>Tienes {{$age}} y tu cumple será el próximo {{$birthday_day}}, faltan {{$daysleft}} días</p>
+    @if ($daysleft === 0)
+        <h2>Felicidades!!</h2>
+    @else
+        <p>Tienes {{$age}} y tu cumple será el próximo {{$day_of_week}} {{$birthday_day}}, faltan {{$daysleft}} días</p>
+    @endif
 @endif
