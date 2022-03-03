@@ -14,17 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-$welcome = function () {
-    $nav = [
-        'fecha' => 'Fecha',
-        'edad' => 'Edad',
-        'cumple' => 'Cumple'
-    ];
-    return view('hola', ['nav' => $nav]);
-};
-
-Route::get('/', $welcome);
-Route::get('/hola', $welcome)->name('hola');
+Route::get('/', [\App\Http\Controllers\Controller::class, 'hola']);
+Route::get('/hola', [\App\Http\Controllers\Controller::class, 'hola'])->name('hola');
 
 Route::get('/fecha', function () {
     $now = Carbon::now();
