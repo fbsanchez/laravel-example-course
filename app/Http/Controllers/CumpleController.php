@@ -16,7 +16,10 @@ class CumpleController extends Controller
         $next = Carbon::parse($next->year(now()->format('Y'))->format('Y-m-d'));
         $age = $fecha->diffInYears($now);
 
-        if ($next->year === $now->year) {
+        if ($next->year === $now->year
+            && $next->month <= $now->month
+            && $next->day <= $now->day
+        ) {
             $next = $next->addYear(1);
         }
 

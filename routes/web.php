@@ -14,13 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+$welcome = function () {
+    $nav = [
+        'fecha' => 'Fecha',
+        'edad' => 'Edad',
+        'cumple' => 'Cumple'
+    ];
+    return view('hola', ['nav' => $nav]);
+};
 
-Route::get('/hola', function () {
-    return view('hola');
-})->name('hola');
+Route::get('/', $welcome);
+Route::get('/hola', $welcome)->name('hola');
 
 Route::get('/fecha', function () {
     $now = Carbon::now();

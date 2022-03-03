@@ -1,7 +1,3 @@
-<h1>Bienvenido</h1>
+<x-layouts.base title="Bienvenido" :nav=$nav>
 
-<a href="{{route('fecha')}}"><button>Fecha</button></a>
-
-<a href="{{route('edad')}}"><button>Edad</button></a>
-
-<a href="{{route('cumple')}}"><button>Cumple</button></a>
+</x-layouts.base>

@@ -1,6 +1,3 @@
-{{$now}}
-
-<br>
-
-<a href="{{route('hola')}}"><button>volver</button></a>
-
+<x-layouts.base title="Fecha">
+    {{ $now }}
+</x-layouts.base>
