@@ -33,3 +33,7 @@ Route::match(
     '/cumple',
     [\App\Http\Controllers\CumpleController::class, 'go']
 )->name('cumple');
+
+
+Route::resource('/categorias', \App\Http\Controllers\CategoriaController::class);
+Route::resource('/productos', \App\Http\Controllers\ProductoController::class);
